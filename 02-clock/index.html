@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+</head>
+<body>
+
+
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand handS second-hand"></div>
+        <div class="numeros twelve">12</div>
+        <div class="numeros three">3</div>
+        <div class="numeros six">6</div>
+        <div class="numeros nine">9</div>
+      </div>
+    </div>
+
+
+  <style>
+    html {
+      background:url(img/background\ \(1\).jpg);
+      background-size: cover;
+      text-align: center;
+      font-size: 10px;
+    }
+
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+      align-items: center;
+    }
+
+    .clock {
+      width: 30rem;
+      height: 30rem;
+      border: 2rem solid #af7759;
+      border-radius: 50%;
+      margin: 50px auto;
+      position: relative;
+      padding: 2rem;
+      box-shadow:
+        0 0 0 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+      top: -130px;
+      left: -120px;
+    }
+
+    .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-3px); /* account for the height of the clock hands */
+    }
+
+    .numeros {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: bolder;
+      font-size: 2.5rem;
+      color: rgb(57, 57, 57);
+      position: absolute;
+    }
+
+    .twelve {
+      top: -4%;
+      right: 45%;
+    }
+
+    .three {
+      top: 45%;
+      left: 98%;
+    }
+
+    .six {
+      top: 98%;
+      right: 48%;
+    }
+
+    .nine {
+      top: 45%;
+      right: 98%;
+    }
+
+    .hand {
+      width: 50%;
+      height: 6px;
+      background: rgb(48, 47, 47);
+      position: absolute;
+      top: 50%;
+      transform-origin: 100%;
+      transform: rotate(90deg);
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+      border-radius: 3px;
+    }
+
+    .handS {
+      background: rgb(144, 40, 40);
+    }
+
+    .hand.hour-hand {
+      width: 30%;
+      top: 50%;
+      right: 50%;
+    }
+
+  </style>
+
+  <script>
+
+    const ponteiroSegundos = document.querySelector('.second-hand');
+    const ponteiroMinutos = document.querySelector('.min-hand');
+    const ponteiroHoras = document.querySelector('.hour-hand');
+
+
+    function setDate() {
+      const agora = new Date();
+
+      const segundos = agora.getSeconds();
+      const segundosDeg = ((segundos / 60) * 360) + 90;
+      ponteiroSegundos.style.transform = `rotate(${segundosDeg}deg)`;
+
+      const mins = agora.getMinutes();
+      const minsDeg = ((mins / 60) * 360) + ((segundos / 60) * 6) + 90;
+      ponteiroMinutos.style.transform = `rotate(${minsDeg}deg)`;
+
+      const hour = agora.getHours();
+      const hourDeg = ((hour / 12) * 360) + ((mins / 60) * 30) + 90;
+      ponteiroHoras.style.transform = `rotate(${hourDeg}deg)`;
+    }
+
+    setInterval(setDate, 1000)
+    setDate();
+  </script>
+</body>
+</html>
