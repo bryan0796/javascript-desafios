@@ -49,3 +49,10 @@ kbd {
   letter-spacing: .1rem;
   color: #ffc600;
 }
+
+@media (max-width: 500px) {
+  .keys {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
