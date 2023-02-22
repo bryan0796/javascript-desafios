@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background: url('./img/background1.jpg');
+  background-size: cover;
+  background-position:bottom;
+  background-attachment: fixed;
+}
+
+.clock {
+  width: 16rem;
+  height: 16rem;
+  border: 1rem solid #af7759;
+  border-radius: 50%;
+  margin: 50px 150px;
+  box-shadow: inset 0 0 0 3px #efefef,
+    inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  background-color: aliceblue;
+}
+
+.numeros {
+  width: 100%;
+  height: 100%;
+  font-weight: bolder;
+  font-size: 2rem;
+  color: rgb(57, 57, 57);
+  position: absolute;
+  text-align: center;
+  transform: rotate(0);
+}
+
+.three {
+  transform: rotate(90deg);
+}
+
+.six {
+  transform: rotate(180deg);
+}
+
+.nine {
+  transform: rotate(270deg);
+}
+
+/* ponteiros */
+.ponteiro {
+  transform: rotate(0);
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 10px;
+  height: 40%;
+  background-color: black;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  transform-origin: bottom;
+}
+
+.segundos {
+  width: 3px;
+  background-color: red;
+  z-index: 10;
+}
+
+.minutos {
+  width: 6px;
+  height: 39%;
+}
+
+.horas {
+  width: 8px;
+  height: 30%;
+}
+
+@media (max-width: 500px){
+  body {
+    background: url('img/background2.jpg');
+    background-size: cover;
+    background-position: center right;
+    background-attachment: fixed;
+  }
+  .clock {
+    margin: 60px auto;
+  }
+}
