@@ -8,6 +8,23 @@ class PopulacaoPorEstado {
     this.fetchEstados = this.fetchEstados.bind(this);
   }
 
+  init() {
+    this.evento();
+  }
+  
+  evento() {
+    this.inputBusca.addEventListener('change', this.fetchEstados);
+  }
+
+  fetchEstados() {
+    return fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+    .then(response => response.json())
+    .then(json => {
+      this.estados.push(...json);
+      this.buscarIdEstado();
+    });
+  }  
+
   buscarIdEstado() {
     const regex = new RegExp(this.inputBusca.value, 'gi');
     this.estados.map(estado => {
@@ -30,25 +47,6 @@ class PopulacaoPorEstado {
   mostrarDados() {
     this.resultados.innerHTML = ` <li>População: ${this.populacao}</li>`;
   }
-
-  fetchEstados() {
-    return fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
-    .then(response => response.json())
-    .then(json => {
-      this.estados.push(...json);
-      this.buscarIdEstado();
-    });
-  }
-  
-  evento() {
-    this.inputBusca.addEventListener('change', this.fetchEstados);
-    
-
-  }
-
-  init() {
-    this.evento();
-  } 
 }
 
 const iniciar = new PopulacaoPorEstado;
