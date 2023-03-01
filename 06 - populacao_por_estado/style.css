@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgb(254, 233, 225);
+  background-color: rgb(229, 213, 195);
 }
 
 li {
@@ -18,13 +18,14 @@ li {
   border-radius: 6px;
   max-width: 550px;
   min-height: 50vh;
-  background-color: rgb(214, 114, 71);
+  background-color: rgb(232, 153, 89);
 }
 
 .grid {
   display: grid;
   justify-content: center;
   margin-top: 32px;
+  justify-items: center;
 }
 
 label {
@@ -38,8 +39,8 @@ label {
 .busca {
   border-radius: 4px;
   border-color: rgb(227, 182, 156);
-  height: 32px;
-  margin-bottom: 8px;
+  height: 36px;
+  margin-bottom: 10px;
   background-color: #f0eeee;
 }
 
@@ -49,7 +50,20 @@ label {
 }
 
 .resultados {
+  font-size: 1.3rem;
   font-weight: 600;
   color: #f3f3f3;
   max-width: 40ch;
+}
+
+@media(max-width: 500px) {
+  .container {
+    max-width: 300px;
+    min-height: 32vh;
+    margin: 28vh auto 0 auto;
+  }
+  label {
+    font-size: 4rem;
+  }
+  
 }

@@ -16,8 +16,8 @@ class PopulacaoPorEstado {
     this.inputBusca.addEventListener('change', this.fetchEstados);
   }
 
-  fetchEstados() {
-    return fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+  async fetchEstados() {
+    await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
     .then(response => response.json())
     .then(json => {
       this.estados.push(...json);
