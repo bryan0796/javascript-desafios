@@ -46,6 +46,7 @@ class PopulacaoPorEstado {
   
   mostrarDados() {
     this.resultados.innerHTML = ` <li>População: ${this.populacao}</li>`;
+    this.populacao.shift();
   }
 }
 
