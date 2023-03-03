@@ -41,8 +41,8 @@ function scrub(e) {
 //eventos
 
 video.addEventListener('click', togglePlay);
-video.addEventListener('play', togglePlay);
-video.addEventListener('pause', togglePlay);
+video.addEventListener('play', updateButton);
+video.addEventListener('pause', updateButton);
 video.addEventListener('timeupdate', handleProgress);
 
 toggle.addEventListener('click', togglePlay);
@@ -54,5 +54,5 @@ let mousedown = false;
 progress.addEventListener('click', scrub);
 progress.addEventListener('mousemove', (event) => mousedown && scrub(event));
 progress.addEventListener('mousedown', () => mousedown = true);
-progress.addEventListener('mousedown', () => mousedown = false);
+progress.addEventListener('mouseup', () => mousedown = false);
 
