@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<style>
+  input {
+    display: none;
+  }
+  @media(max-width: 500px) {
+    input {
+      display: block;
+    }
+    p {
+      max-width: 80vw;
+    }
+    code {
+      width: 200px;
+    }
+  }
+</style>
+<body style = "background-color:#ebe9e9";>
+  <p style="font-weight: bold;">Este projeto visa exercitar a manipulação de array e string, digite o código "bryan" e uma função cornify será acionada.</p>
+  <input></input>
+  <p style="font-weight: bold;">Código JavaScript:</p>
+  <code>
+  const pressionado = [];
+  <br>
+  const codigoSecreto = 'bryan';
+    <br>
+  window.addEventListener('keyup', (event) => {
+    <br>
+    pressionado.push(event.key);
+    <br>
+    pressionado.splice(-codigoSecreto.length - 1,
+    <br>
+    pressionado.length - codigoSecreto.length);
+    <br>
+    if (pressionado.join('')
+    <br>
+    .includes(codigoSecreto)) {
+      <br>
+      cornify_add();
+      <br>
+    }
+    <br>
+  })
+  </code>
+<script>
+
+  const pressionado = [];
+  const codigoSecreto = 'bryan';
+
+  window.addEventListener('keyup', (event) => {
+    pressionado.push(event.key);
+    pressionado.splice(-codigoSecreto.length - 1, pressionado.length - codigoSecreto.length);
+    if (pressionado.join('').includes(codigoSecreto)) {
+      cornify_add();
+    }
+  })
+</script>
+</body>
+</html>
