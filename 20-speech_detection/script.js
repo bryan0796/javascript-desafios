@@ -2,7 +2,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 
 const recognition = new SpeechRecognition();
 recognition.interinResults = true;
-recognition.lang = 'pt-BR';
+recognition.lang = 'pt-br';
 
 let p = document.createElement('p');
 const words = document.querySelector('.words');
