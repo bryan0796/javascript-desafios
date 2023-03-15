@@ -12,12 +12,7 @@ recognition.addEventListener('result', event => {
   const transcricao = Array.from(event.results)
     .map(result => result[0])
     .map(result => result.transcript)
-    .join('');
-  
-  const dogScript = transcript.replace(/cachorro/gi, '🐕');
-  const catScript = transcript.replace(/gato|gata/gi, '🐈');
-  p.textContent = dogScript;
-  p.textContent = catScript;  
+    .join(''); 
  
   if (event.results[0].isFinal) {
     p = document.createElement('p');
