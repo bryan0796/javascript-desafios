@@ -1,5 +1,5 @@
 html {
-height: 100%;
+  height: 100vh;
   box-sizing: border-box;
   font-size: 10px;
   background-image: linear-gradient(to bottom, #dfb004, #b48a01, #7c5102);
