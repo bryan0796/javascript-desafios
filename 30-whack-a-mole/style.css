@@ -42,7 +42,7 @@ button:hover {
 
 .game {
   width: 600px;
-  height: 480px;
+  height: 600px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
